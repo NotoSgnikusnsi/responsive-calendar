@@ -1,0 +1,113 @@
+:root {
+  --white: #f3f3f3;
+  --black: #1a1a1c;
+  --gray: #ccc;
+  --today: #ffcc00;
+}
+
+/* 全体 */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 90%;
+  /* 子要素を縦に配置 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ヘッダー */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.current {
+  font-size: 20px;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+}
+
+/* カレンダー */
+table {
+  width: 100%;
+  border-collapse: collapse; /* セルの境界線を取り除く */
+  table-layout: fixed; /* セルの幅を等分割 */
+  flex-grow: 1; /* ウィンドウの高さに合わせる */
+}
+
+th {
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--gray);
+  /* 行の折り返し */
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  /* ボックスから要素がはみ出ないように設定 */
+  box-sizing: border-box;
+}
+
+/* 日付 */
+.prev-month,
+.next-month {
+  color: var(--gray);
+}
+
+.current-date {
+  background-color: var(--today);
+  font-weight: bold;
+}
+
+.holiday-text {
+  word-break: break-all;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  .header {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  table {
+    font-size: 14px;
+  }
+  th,
+  td {
+    padding: 8px;
+  }
+}
